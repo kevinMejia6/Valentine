@@ -30,6 +30,7 @@
         <div id="sadGifContainer1" style="display: none;">
             <img src="https://encoded.pe/sanvalentin/mocha3.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
         </div>
+
         <div id="sadGifContainer2" style="display: none;"></div>
         
         <h1 id="question">¿Quieres ser mi primer San Valentín ?</h1>
@@ -44,7 +45,9 @@
         </div>
         
         <button id="siBtn">Sí</button>
+        <audio id="romanticMusic" src="romantic.mp3" preload="auto"></audio>
         <button id="noBtn">No</button>
+
         <footer>
             <p>Desarrollado por KEVIN EDUARDO</p>
         </footer>
@@ -56,6 +59,15 @@
 </html>
 
 <script>
+    window.addEventListener('load', function() {
+        let music = document.getElementById('romanticMusic');
+        music.muted = true; // Silenciar el audio
+        music.play();
+        music.muted = false; // Quitar el silencio
+    });
+    
+    
+    
     let noButtonClickCount = 0; // Contador para el botón "No"
 let noButtonState = 0; // Estado actual del botón "No"
 
@@ -63,6 +75,10 @@ let noButtonState = 0; // Estado actual del botón "No"
 document.getElementById('gifContainer').style.display = 'block';
 
 document.getElementById('siBtn').addEventListener('click', function() {
+
+      // Reproducir la música cuando se haga clic en "Sí"
+      let music = document.getElementById('romanticMusic');
+      music.play();
     // Ocultar el gif triste y mostrar el gif feliz
     document.getElementById('sadGifContainer').style.display = 'none';
     document.getElementById('sadGifContainer1').style.display = 'none';
